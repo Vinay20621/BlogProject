@@ -1,0 +1,21 @@
+.card img {
+    height: 280px;
+  }
+  .title{
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 2rem;
+    border-bottom: 2px dotted black;
+    font-weight: 200;
+    
+}
+body
+{
+    height: 100vh;   
+    display: flex;
+    flex-direction: column;
+}
+.footer{
+    margin-top: auto;
+    /* background-color: aqua; */
+    width: 100%;
+}

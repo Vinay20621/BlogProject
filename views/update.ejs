@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <title>Update</title>
+    <%- include('./Component/cssScript') %>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+  </head>
+  <body>
+    <header>
+
+      <%- include('./Component/nav') %>
+    </header>
+
+    <div class="container mt-5 pt-4 mb-4">
+      <form action="/blog/update/<%= item._id %>" class="mt-5" method="post" >
+        
+          
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            <% if (item) { %>
+             value="<%= item.title %>"
+            <% } %>
+            name="title"
+            aria-describedby="title"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="body">Body</label>
+          <textarea name="content" class="form-control" 
+          id="body">
+          <% if (item) { %>
+            <%= item.body %>
+           <% } %>
+        </textarea>
+        </div>
+        <div class="mb-3">
+          <button class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+    
+    <%- include('./Component/footer') %>
+
+    <%- include('./Component/javaScript') %>
+  </body>
+</html>

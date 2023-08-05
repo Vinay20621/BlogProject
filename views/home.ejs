@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <%- include('./Component/cssScript') %>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    
+
+   
+  </head>
+  <body>
+    <%- include('./Component/nav') %>
+  
+  <div class=" container-fluid bg-light mt-5">
+    <div class="container">
+      <div class="text-center my-5">
+        <h1>Our-Blogs</h1>
+        <hr />
+      </div>
+
+
+      <div class="row">
+        <% blogs.forEach(blog => { %>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card mb-5 shadow-sm">
+            <img src="<%= blog.coverImageURL %>" class="img-fluid" />
+
+            <div class="card-body">
+              <div class="card-title">
+                <h2 class="title"><%= blog.title %></h2>
+               <div>
+                <%= blog.body %>
+               </div>
+              </div>
+              
+              <div class="card-text">
+                <% if (user) { %>
+                 
+                  <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+                  <a href="/blog/delete/<%= blog._id %>" class="btn btn-primary bg-danger ms-2">Delete</a>
+                  <a href="/blog/update/<%= blog._id %>" class="btn btn-primary  ms-2">Update</a>
+                  <% } %>
+                  <% if (!user) { %>
+                   
+                    <a href="/<%= blog._id %>" class="btn btn-primary">View</a>
+                  <% } %>
+                   
+                  
+
+                  
+                 
+                </div>
+             
+              
+            </div>
+          </div>
+        </div>
+        <% }) %>
+
+
+      </div>
+    </div>
+</div>
+    <footer class="footer">
+      <%- include('./Component/footer') %>
+    </footer>
+
+    <%- include('./Component/javaScript') %>
+  </body>
+</html> 

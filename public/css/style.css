@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html
+{
+    height: 100%;  
+}
+.border{
+    border: 1px solid black;
+}
+body
+{
+    height: 100vh;   
+    display: flex;
+    flex-direction: column;
+}
+.footer{
+    margin-top: auto;
+    /* background-color: aqua; */
+    width: 100%;
+}
+/* p{ */
+    /* font-family: 'Handlee', cursive; */
+/* font-family: 'Pacifico', cursive; */
+/* font-family: 'Pacifico', cursive; */
+/* } */
+.title{
+    font-family: 'Handlee', cursive;
+    font-size: 3rem;
+    border-bottom: 2px dotted black;
+    font-weight: 200;
+    
+}
+
+
+
+
+

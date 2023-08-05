@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users</title>
+    <%- include('./Component/cssScript') %>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    l
+
+   
+  </head>
+  <body>
+    <%- include('./Component/nav') %>
+  
+  <div class=" container-fluid bg-light mt-5">
+    <div class="container ">
+      <div class="text-center my-5 pt-3">
+        <h1>Users</h1>
+        <hr />
+      </div>
+
+
+      <div class="row">
+        <% allUsers.forEach(user => { %>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card mb-5 shadow-sm ">
+            <img src="<%= user.profileImageURL %>" width="200" height="100" class="img-fluid mt-3 mx-auto" />
+
+            <div class="card-body">
+              <div class="card-title">
+                
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item ms-2">Name : <%= user.name %> </li>
+                    <li class="list-group-item ms-2">UserName : <%= user.username %> </li>
+                    <li class="list-group-item ms-2">Email : <%= user.email %> </li>
+                  </ul>
+
+              </div>
+              
+              <div class="card-text ms-2">
+               
+                  
+                   
+                    <a href="/admin/delete/<%= user._id %>" class="btn ms-3btn-primary bg-danger">Delete</a>
+               
+                   
+                  
+
+                  
+                 
+                </div>
+             
+              
+            </div>
+          </div>
+        </div>
+        <% }) %>
+
+
+      </div>
+    </div>
+</div>
+    <footer class="footer">
+      <%- include('./Component/footer') %>
+    </footer>
+
+    <%- include('./Component/javaScript') %>
+  </body>
+</html> 

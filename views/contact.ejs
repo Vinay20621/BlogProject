@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact</title>
+   <%- include('./Component/cssScript') %>
+    <link rel="stylesheet" href="/css/index.css" type="text/css">
+</head>
+  <body>
+
+    
+    <%- include('./Component/nav') %>
+    
+            
+        <div class="text-center mt-2">
+            <h1>Contact-Us</h1>
+            <hr />
+          </div>
+    
+    <div class="container form mb-5">
+        <div class="row justify-content-around mt-3 pb-3 pt-5 mb-3">
+            <% if (locals.error) { %>
+                <div class="container mb-4">
+                  <div class="alert alert-danger" role="alert"><%= locals.error %></div>
+                </div>
+                <% } %>
+                <% if (locals.success) { %>
+                    <div class="container">
+                      <div class="alert alert-danger bg-primary-subtle text-center text-dark " role="alert"><%= locals.success %></div>
+                    </div>
+                    <% } %>
+
+
+            <div class="col-md-4 mb-4 mt-3">
+                <img src="/contact.png" class="img-fluid" alt="not Found">
+            </div>
+            <div class="col-md-5 mb-3">
+                <form action="/contact" method="post">
+                
+                <div class="input-group mb-3 pt-3">            
+            <input type="text" class="form-control" name="name" placeholder="Enter Your Name" aria-label="Username" aria-describedby="basic-addon1">
+            </div>            
+               
+
+            
+            
+                <div class="input-group mb-3">            
+            <input type="email" class="form-control" name="email" placeholder="Enter Your Email" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+
+      
+            <div class="input-group mb-3">            
+                <textarea name="message" class="form-control"  id="body">
+                
+              </textarea>
+            </div>
+
+            
+                    
+                
+                <div class="row">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary bg-success but">Summit</button>
+                    </div>
+                </div>
+            </form>
+               
+            
+
+
+        </div>
+    </div>
+    </div>
+   
+    <%- include('./Component/footer') %>
+   
+     
+    <%- include('./Component/javaScript') %>
+    </body>
+</html>

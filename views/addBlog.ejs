@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <title>Add New Blog</title>
+    <%- include('./Component/cssScript') %>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+  </head>
+  <body>
+    <header>
+
+      <%- include('./Component/nav') %>
+    </header>
+
+    <div class="container mt-5">
+      <form action="/blog/add" method="post" enctype="multipart/form-data" class="mt-5 pt-5">
+        <div class="mb-3">
+          <label for="coverImage" class="form-label">Cover Image</label>
+          <input
+            type="file"
+            class="form-control"
+            id="coverImage"
+            name="coverImage"
+            value="okkkkk"
+           
+            
+            aria-describedby="coverImage"
+          />
+          
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            <% if (item) { %>
+             value="<%= item.title %>"
+            <% } %>
+            name="title"
+            aria-describedby="title"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="body">Body</label>
+          <textarea name="body" class="form-control" 
+          id="body">
+          <% if (item) { %>
+            <%= item.body %>
+           <% } %>
+        </textarea>
+        </div>
+        <div class="mb-3">
+          <button class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+    <%- include('./Component/footer') %>
+
+    <%- include('./Component/javaScript') %>
+  </body>
+</html>
