@@ -54,7 +54,7 @@ router.get("/add",async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-      const allBlogs = await Blog.find({}).sort({"timestamps":-1});
+      const allBlogs = await Blog.find({}).sort({createdAt:'desc'}).exec();
       
         // for take some text
         const temp=[];
@@ -119,14 +119,9 @@ router.get("/delete/:blogId",async(req,res)=>
     {
       return res.redirect('/blog')
     }
-    // if(!item)
-    // {
-    //   return res.redirect('/blog')
-    // }
-    // console.log("pppppppppppppppppppp")
+    
     await Comment.deleteMany({blogId:item._id})
-    // console.log(a)
-    // console.log("mmmmmmmmmmmmmmmmmmmmmmmmmmm")
+   
 
     return res.redirect('/blog')
     
@@ -142,7 +137,7 @@ router.get("/:id", async (req, res) => {
     
     const blog = await Blog.findById(req.params.id).populate("createdBy");
     // console.log(blog)
-    const comments = await Comment.find({ blogId: req.params.id }).sort({"timestamp":-1}).populate(
+    const comments = await Comment.find({ blogId: req.params.id }).sort({createdAt:'desc'}).populate(
       "createdBy"
     );
     // console.log(comments)
